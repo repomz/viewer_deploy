@@ -1,0 +1,25 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  deployment-config:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Validate Docker Compose
+        run: docker compose --env-file .env.example config --quiet
+      - name: Validate shell syntax
+        run: sh -n scripts/*.sh
+      - name: Render Kubernetes manifests
+        run: |
+          cp kubernetes/base/secret.example.yaml kubernetes/base/secret.yaml
+          kubectl kustomize kubernetes/base > /tmp/viewer.yaml
+          test "$(grep -c '^kind:' /tmp/viewer.yaml)" -ge 10
+

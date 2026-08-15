@@ -1,0 +1,61 @@
+{
+  "Name": "M A P D R",
+  "StorageDirectory": "/var/lib/orthanc/db",
+  "IndexDirectory": "/var/lib/orthanc/db",
+  "StorageCompression": true,
+  "MaximumStorageSize": 0,
+  "MaximumPatientCount": 0,
+  "Plugins": [
+    "/usr/local/share/orthanc/plugins/libOrthancDicomWeb.so"
+  ],
+  "HttpServerEnabled": true,
+  "OrthancExplorerEnabled": true,
+  "HttpPort": 8042,
+  "HttpDescribeErrors": true,
+  "HttpCompressionEnabled": true,
+  "DicomServerEnabled": true,
+  "DicomAet": "MAPDR",
+  "DicomCheckCalledAet": true,
+  "DicomPort": 4242,
+  "RemoteAccessAllowed": true,
+  "AuthenticationEnabled": true,
+  "RegisteredUsers": {
+    "mapdr": "CHANGE_ME_ORTHANC"
+  },
+  "DicomAlwaysAllowEcho": true,
+  "DicomAlwaysAllowStore": true,
+  "DicomAlwaysAllowFind": false,
+  "DicomAlwaysAllowFindWorklist": false,
+  "DicomAlwaysAllowGet": false,
+  "DicomAlwaysAllowMove": false,
+  "DicomCheckModalityHost": false,
+  "DicomModalities": {
+    "hospital-agent": ["HOSPITAL_AGENT", "agent", 11112],
+    "radiant": {
+      "AET": "RADIANT",
+      "Host": "127.0.0.1",
+      "Port": 11112,
+      "Manufacturer": "Generic",
+      "AllowEcho": true,
+      "AllowFind": true,
+      "AllowGet": true,
+      "AllowMove": false,
+      "AllowStore": false
+    }
+  },
+  "DicomModalitiesInDatabase": false,
+  "DicomScuTimeout": 30,
+  "DicomThreadsCount": 2,
+  "HttpTimeout": 60,
+  "HttpsVerifyPeers": true,
+  "KeepAlive": true,
+  "TcpNoDelay": true,
+  "HttpThreadsCount": 12,
+  "StoreDicom": true,
+  "QueryRetrieveSize": 100,
+  "CaseSensitivePN": false,
+  "MetricsEnabled": true,
+  "SaveJobs": true,
+  "StorageAccessOnFind": "Always"
+}
+

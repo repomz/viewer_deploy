@@ -1,0 +1,7 @@
+.env
+backups/
+tls/*.pem
+kubernetes/base/secret.yaml
+kubernetes/base/tls-secret.yaml
+.DS_Store
+
