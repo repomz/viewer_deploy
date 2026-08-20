@@ -9,7 +9,7 @@ Windows-компьютере больницы и в этот серверный 
 | Компонент | Образ |
 |---|---|
 | Frontend | `ghcr.io/repomz/viewer_frontend:0.2.33` |
-| Backend | `idrisovmarat/viewer_backend:0.2.7` |
+| Backend | `ghcr.io/repomz/viewer_backend:0.2.8` |
 | Миграции | `idrisovmarat/viewer_backend-migrations:0.2.0` |
 | PostgreSQL | `postgres:17-alpine` |
 | Orthanc | `jodogne/orthanc-plugins:1.12.11` |

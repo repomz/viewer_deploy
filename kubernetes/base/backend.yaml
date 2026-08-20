@@ -54,7 +54,7 @@ spec:
                 secretKeyRef: {name: viewer-secrets, key: DB_DSN}
       containers:
         - name: backend
-          image: idrisovmarat/viewer_backend:0.2.7
+          image: ghcr.io/repomz/viewer_backend:0.2.8
           ports:
             - name: http
               containerPort: 8080
@@ -110,4 +110,3 @@ spec:
           persistentVolumeClaim: {claimName: xa-cache-data}
         - name: tmp
           emptyDir: {sizeLimit: 1Gi}
-

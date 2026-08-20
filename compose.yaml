@@ -80,7 +80,7 @@ services:
     networks: [pacs]
 
   backend:
-    image: ${BACKEND_IMAGE:-idrisovmarat/viewer_backend:0.2.7}
+    image: ${BACKEND_IMAGE:-ghcr.io/repomz/viewer_backend:0.2.8}
     environment:
       DB_DSN: postgres://${POSTGRES_USER:-viewer}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-viewer}?sslmode=disable
       HTTP_ADDR: :8080
