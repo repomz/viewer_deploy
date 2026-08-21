@@ -6,7 +6,7 @@
 
 ```bash
 python3 http_load.py \
-  --tls --insecure --host 127.0.0.1 --host-header 135.106.130.37 \
+  --tls --insecure --host 127.0.0.1 --host-header 135.106.195.161 \
   --path /api/ --requests 500 --concurrency 10
 ```
 
