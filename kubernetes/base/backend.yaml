@@ -44,7 +44,7 @@ spec:
               valueFrom:
                 secretKeyRef: {name: viewer-secrets, key: POSTGRES_USER}
         - name: migrations
-          image: idrisovmarat/viewer_backend-migrations:0.2.0
+          image: ghcr.io/repomz/viewer_backend-migrations:0.2.9
           args: [up]
           env:
             - name: GOOSE_DRIVER
@@ -54,7 +54,7 @@ spec:
                 secretKeyRef: {name: viewer-secrets, key: DB_DSN}
       containers:
         - name: backend
-          image: ghcr.io/repomz/viewer_backend:0.2.8
+          image: ghcr.io/repomz/viewer_backend:0.2.9
           ports:
             - name: http
               containerPort: 8080

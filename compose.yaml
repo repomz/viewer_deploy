@@ -29,7 +29,7 @@ services:
     networks: [application]
 
   migrations:
-    image: ${BACKEND_MIGRATIONS_IMAGE:-idrisovmarat/viewer_backend-migrations:0.2.0}
+    image: ${BACKEND_MIGRATIONS_IMAGE:-ghcr.io/repomz/viewer_backend-migrations:0.2.9}
     environment:
       GOOSE_DRIVER: postgres
       GOOSE_DBSTRING: postgres://${POSTGRES_USER:-viewer}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-viewer}?sslmode=disable
@@ -80,7 +80,7 @@ services:
     networks: [pacs]
 
   backend:
-    image: ${BACKEND_IMAGE:-ghcr.io/repomz/viewer_backend:0.2.8}
+    image: ${BACKEND_IMAGE:-ghcr.io/repomz/viewer_backend:0.2.9}
     environment:
       DB_DSN: postgres://${POSTGRES_USER:-viewer}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-viewer}?sslmode=disable
       HTTP_ADDR: :8080

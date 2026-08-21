@@ -9,8 +9,8 @@ Windows-компьютере больницы и в этот серверный 
 | Компонент | Образ |
 |---|---|
 | Frontend | `ghcr.io/repomz/viewer_frontend:0.2.36` |
-| Backend | `ghcr.io/repomz/viewer_backend:0.2.8` |
-| Миграции | `idrisovmarat/viewer_backend-migrations:0.2.0` |
+| Backend | `ghcr.io/repomz/viewer_backend:0.2.9` |
+| Миграции | `ghcr.io/repomz/viewer_backend-migrations:0.2.9` |
 | PostgreSQL | `postgres:17-alpine` |
 | Orthanc | `jodogne/orthanc-plugins:1.12.11` |
 
@@ -131,7 +131,7 @@ Frontend включает HTTPS автоматически, если в `VIEWER_
 Для первичного короткоживущего Let's Encrypt сертификата на IP:
 
 ```bash
-export VIEWER_SERVER_IP=135.106.130.37
+export VIEWER_SERVER_IP=135.106.195.161
 ./scripts/issue-ip-certificate.sh
 docker compose up -d --force-recreate frontend
 ```
@@ -139,7 +139,7 @@ docker compose up -d --force-recreate frontend
 Для обновления сертификата:
 
 ```bash
-export VIEWER_SERVER_IP=135.106.130.37
+export VIEWER_SERVER_IP=135.106.195.161
 ./scripts/renew-ip-certificate.sh
 ```
 
