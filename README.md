@@ -150,6 +150,15 @@ export VIEWER_DOMAIN=angio.su
 ./scripts/renew-domain-certificate.sh
 ```
 
+Готовые systemd units устанавливаются так:
+
+```bash
+sudo install -m 0644 systemd/viewer-cert-renew.service /etc/systemd/system/
+sudo install -m 0644 systemd/viewer-cert-renew.timer /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now viewer-cert-renew.timer
+```
+
 ### Резервный доступ по IP-адресу
 
 Frontend включает HTTPS автоматически, если в `VIEWER_TLS_DIR` присутствуют

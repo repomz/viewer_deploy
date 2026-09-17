@@ -1,0 +1,10 @@
+[Unit]
+Description=Renew Viewer domain TLS certificate
+After=docker.service network-online.target
+Requires=docker.service
+
+[Service]
+Type=oneshot
+EnvironmentFile=-/opt/viewer/viewer_deploy/.env
+WorkingDirectory=/opt/viewer/viewer_deploy
+ExecStart=/opt/viewer/viewer_deploy/scripts/renew-domain-certificate.sh
