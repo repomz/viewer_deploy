@@ -137,6 +137,7 @@ dig +short A angio.su @ns1.reg.ru
 
 ```bash
 export VIEWER_DOMAIN=angio.su
+export VIEWER_DOMAIN_ALIASES=www.angio.su
 export VIEWER_SERVER_IP=135.106.195.161
 ./scripts/issue-domain-certificate.sh
 docker compose up -d --force-recreate frontend

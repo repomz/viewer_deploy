@@ -17,13 +17,18 @@ fi
 
 mkdir -p "$certbot_root/etc" "$certbot_root/lib" "$certbot_root/www" "$tls_dir"
 
+set -- --domain "$VIEWER_DOMAIN"
+for alias in ${VIEWER_DOMAIN_ALIASES:-}; do
+  set -- "$@" --domain "$alias"
+done
+
 docker run --rm \
   -v "$certbot_root/etc:/etc/letsencrypt" \
   -v "$certbot_root/lib:/var/lib/letsencrypt" \
   -v "$certbot_root/www:/var/www/certbot" \
   "$certbot_image" certonly \
   --webroot --webroot-path /var/www/certbot \
-  --domain "$VIEWER_DOMAIN" \
+  "$@" \
   --non-interactive --agree-tos --register-unsafely-without-email
 
 live_dir="$certbot_root/etc/live/$VIEWER_DOMAIN"
