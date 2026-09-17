@@ -28,6 +28,7 @@ docker run --rm \
   -v "$certbot_root/www:/var/www/certbot" \
   "$certbot_image" certonly \
   --webroot --webroot-path /var/www/certbot \
+  --cert-name "$VIEWER_DOMAIN" \
   "$@" \
   --non-interactive --agree-tos --register-unsafely-without-email
 
