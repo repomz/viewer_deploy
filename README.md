@@ -147,8 +147,13 @@ docker compose up -d --force-recreate frontend
 
 ```bash
 export VIEWER_DOMAIN=angio.su
-./scripts/renew-domain-certificate.sh
+export VIEWER_SERVER_IP=135.106.195.161
+./scripts/renew-certificates.sh
 ```
+
+Frontend хранит и обслуживает оба сертификата одновременно: доменный для
+`angio.su`/`www.angio.su` и короткоживущий IP-сертификат для установленных
+больничных агентов, продолжающих обращаться к `https://135.106.195.161/api`.
 
 Готовые systemd units устанавливаются так:
 

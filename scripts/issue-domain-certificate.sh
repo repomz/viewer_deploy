@@ -35,3 +35,5 @@ docker run --rm \
 live_dir="$certbot_root/etc/live/$VIEWER_DOMAIN"
 install -o 101 -g 101 -m 0640 "$live_dir/fullchain.pem" "$tls_dir/fullchain.pem"
 install -o 101 -g 101 -m 0640 "$live_dir/privkey.pem" "$tls_dir/privkey.pem"
+install -o 101 -g 101 -m 0640 "$live_dir/fullchain.pem" "$tls_dir/domain-fullchain.pem"
+install -o 101 -g 101 -m 0640 "$live_dir/privkey.pem" "$tls_dir/domain-privkey.pem"

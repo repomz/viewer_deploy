@@ -7,4 +7,4 @@ Requires=docker.service
 Type=oneshot
 EnvironmentFile=-/opt/viewer/viewer_deploy/.env
 WorkingDirectory=/opt/viewer/viewer_deploy
-ExecStart=/opt/viewer/viewer_deploy/scripts/renew-domain-certificate.sh
+ExecStart=/opt/viewer/viewer_deploy/scripts/renew-certificates.sh
