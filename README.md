@@ -123,7 +123,33 @@ docker compose logs -f --tail=200 backend frontend pacs
 автоматизирован: перед восстановлением нужно отдельно проверить целевой стек и
 состав архива.
 
-## HTTPS для IP-адреса
+## HTTPS и публичный домен
+
+Основной адрес приложения — `https://angio.su`. До выпуска сертификата
+авторитетные DNS-серверы домена должны возвращать A-запись
+`angio.su -> 135.106.195.161`. Проверка:
+
+```bash
+dig +short A angio.su @ns1.reg.ru
+```
+
+После появления записи выпустите обычный доменный сертификат:
+
+```bash
+export VIEWER_DOMAIN=angio.su
+export VIEWER_SERVER_IP=135.106.195.161
+./scripts/issue-domain-certificate.sh
+docker compose up -d --force-recreate frontend
+```
+
+Периодическое обновление выполняется командой:
+
+```bash
+export VIEWER_DOMAIN=angio.su
+./scripts/renew-domain-certificate.sh
+```
+
+### Резервный доступ по IP-адресу
 
 Frontend включает HTTPS автоматически, если в `VIEWER_TLS_DIR` присутствуют
 `fullchain.pem` и `privkey.pem`.
@@ -144,7 +170,7 @@ export VIEWER_SERVER_IP=135.106.195.161
 ```
 
 В production вызов renewal нужно выполнять systemd timer или cron ежедневно.
-Для доменного имени предпочтительнее обычный сертификат и reverse proxy/Ingress.
+IP-сертификат нужен только как временный резерв до запуска домена.
 
 ## Kubernetes
 
