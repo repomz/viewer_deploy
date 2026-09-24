@@ -8,11 +8,16 @@ Windows-компьютере больницы и в этот серверный 
 
 | Компонент | Образ |
 |---|---|
-| Frontend | `ghcr.io/repomz/viewer_frontend:0.2.46` |
-| Backend | `ghcr.io/repomz/viewer_backend:0.2.11` |
-| Миграции | `ghcr.io/repomz/viewer_backend-migrations:0.2.11` |
+| Frontend | `ghcr.io/repomz/viewer_frontend:0.2.47` |
+| Backend | `ghcr.io/repomz/viewer_backend:0.2.12` |
+| Миграции | `ghcr.io/repomz/viewer_backend-migrations:0.2.12` |
 | PostgreSQL | `postgres:17-alpine` |
 | Orthanc | `jodogne/orthanc-plugins:1.12.11` |
+
+Оригиналы многолетнего архива операций и проверочный JSONL-индекс хранятся на
+хосте в `/opt/viewer/archive`. Они не монтируются в runtime-контейнеры:
+поиск выполняется по нормализованным метаданным PostgreSQL, а исходный ZIP
+остаётся контрольной копией для повторной проверки или восстановления.
 
 Структура репозитория:
 
