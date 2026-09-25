@@ -8,9 +8,9 @@ Windows-компьютере больницы и в этот серверный 
 
 | Компонент | Образ |
 |---|---|
-| Frontend | `ghcr.io/repomz/viewer_frontend:0.2.50` |
-| Backend | `ghcr.io/repomz/viewer_backend:0.2.14` |
-| Миграции | `ghcr.io/repomz/viewer_backend-migrations:0.2.14` |
+| Frontend | `ghcr.io/repomz/viewer_frontend:0.2.51` |
+| Backend | `ghcr.io/repomz/viewer_backend:0.2.15` |
+| Миграции | `ghcr.io/repomz/viewer_backend-migrations:0.2.15` |
 | PostgreSQL | `postgres:17-alpine` |
 | Orthanc | `jodogne/orthanc-plugins:1.12.11` |
 
@@ -261,3 +261,11 @@ StorageClass и наличие резервной копии.
 
 - [Архитектура](docs/architecture.md)
 - [Безопасность](docs/security.md)
+
+## Персональный диск
+
+Метаданные и квота каждого пользователя находятся в PostgreSQL, а файлы — в
+приватном Yandex Object Storage под изолированными префиксами. Для отдельного
+bucket задайте `DRIVE_YANDEX_BUCKET`; при пустом значении используется
+`YANDEX_BUCKET`. Volume `drive-data` служит fallback, если облачные реквизиты
+не настроены.

@@ -10,6 +10,7 @@ data:
   REPORT_AGENT_ID: "2"
   PLANS_DIR: /app/plans
   XA_CACHE_DIR: /app/xa-cache
+  DRIVE_DIR: /app/user-files
   XA_CACHE_TIMEOUT_SECONDS: "120"
   XA_CACHE_FFMPEG_PATH: /usr/bin/ffmpeg
   XA_CACHE_STUDY_WORKERS: "1"
@@ -26,6 +27,6 @@ data:
   REMOTE_PACS_TIMEOUT_SECONDS: "300"
   REMOTE_PACS_IMPORT_WORKERS: "1"
   YANDEX_BUCKET: agent-dicom
+  DRIVE_YANDEX_BUCKET: ""
   YANDEX_ENDPOINT: https://storage.yandexcloud.net
   YANDEX_REGION: ru-central1
-
