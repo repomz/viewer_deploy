@@ -10,7 +10,6 @@ data:
   REPORT_AGENT_ID: "2"
   PLANS_DIR: /app/plans
   XA_CACHE_DIR: /app/xa-cache
-  DRIVE_DIR: /app/user-files
   XA_CACHE_TIMEOUT_SECONDS: "120"
   XA_CACHE_FFMPEG_PATH: /usr/bin/ffmpeg
   XA_CACHE_STUDY_WORKERS: "1"

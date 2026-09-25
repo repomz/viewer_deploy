@@ -52,14 +52,3 @@ spec:
   resources:
     requests:
       storage: 50Gi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: drive-data
-  namespace: viewer
-spec:
-  accessModes: [ReadWriteOnce]
-  resources:
-    requests:
-      storage: 5Gi

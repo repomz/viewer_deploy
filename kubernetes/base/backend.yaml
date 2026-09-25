@@ -44,7 +44,7 @@ spec:
               valueFrom:
                 secretKeyRef: {name: viewer-secrets, key: POSTGRES_USER}
         - name: migrations
-          image: ghcr.io/repomz/viewer_backend-migrations:0.2.15
+          image: ghcr.io/repomz/viewer_backend-migrations:0.2.16
           args: [up]
           env:
             - name: GOOSE_DRIVER
@@ -54,7 +54,7 @@ spec:
                 secretKeyRef: {name: viewer-secrets, key: DB_DSN}
       containers:
         - name: backend
-          image: ghcr.io/repomz/viewer_backend:0.2.15
+          image: ghcr.io/repomz/viewer_backend:0.2.16
           ports:
             - name: http
               containerPort: 8080
@@ -100,7 +100,6 @@ spec:
             - {name: reports, mountPath: /app/reports}
             - {name: plans, mountPath: /app/plans}
             - {name: xa-cache, mountPath: /app/xa-cache}
-            - {name: drive, mountPath: /app/user-files}
             - {name: tmp, mountPath: /tmp}
       volumes:
         - name: reports
@@ -109,7 +108,5 @@ spec:
           persistentVolumeClaim: {claimName: plans-data}
         - name: xa-cache
           persistentVolumeClaim: {claimName: xa-cache-data}
-        - name: drive
-          persistentVolumeClaim: {claimName: drive-data}
         - name: tmp
           emptyDir: {sizeLimit: 2Gi}
