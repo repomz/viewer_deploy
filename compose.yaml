@@ -139,7 +139,7 @@ services:
       pacs: {}
 
   frontend:
-    image: ${FRONTEND_IMAGE:-ghcr.io/repomz/viewer_frontend:0.2.51}
+    image: ${FRONTEND_IMAGE:-ghcr.io/repomz/viewer_frontend:0.2.52}
     environment:
       PUBLIC_DOMAIN: ${VIEWER_DOMAIN:-angio.su}
       BACKEND_URL: http://backend:8080
