@@ -29,7 +29,7 @@ services:
     networks: [application]
 
   migrations:
-    image: ${BACKEND_MIGRATIONS_IMAGE:-ghcr.io/repomz/viewer_backend-migrations:0.2.26}
+    image: ${BACKEND_MIGRATIONS_IMAGE:-ghcr.io/repomz/viewer_backend-migrations:0.2.27}
     environment:
       GOOSE_DRIVER: postgres
       GOOSE_DBSTRING: postgres://${POSTGRES_USER:-viewer}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-viewer}?sslmode=disable
@@ -80,7 +80,7 @@ services:
     networks: [pacs]
 
   backend:
-    image: ${BACKEND_IMAGE:-ghcr.io/repomz/viewer_backend:0.2.26}
+    image: ${BACKEND_IMAGE:-ghcr.io/repomz/viewer_backend:0.2.27}
     environment:
       DB_DSN: postgres://${POSTGRES_USER:-viewer}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-viewer}?sslmode=disable
       HTTP_ADDR: :8080
@@ -88,6 +88,9 @@ services:
       REPORTS_DIR: ${REPORTS_DIR:-/app/reports}
       REPORT_AGENT_ID: ${REPORT_AGENT_ID:-2}
       PLANS_DIR: ${PLANS_DIR:-/app/plans}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      DEEPSEEK_BASE_URL: ${DEEPSEEK_BASE_URL:-https://api.deepseek.com}
+      DEEPSEEK_VISION_MODEL: ${DEEPSEEK_VISION_MODEL:-deepseek-flash}
       XA_CACHE_DIR: ${XA_CACHE_DIR:-/app/xa-cache}
       XA_CACHE_TIMEOUT_SECONDS: ${XA_CACHE_TIMEOUT_SECONDS:-120}
       XA_CACHE_FFMPEG_PATH: /usr/bin/ffmpeg
@@ -139,7 +142,7 @@ services:
       pacs: {}
 
   frontend:
-    image: ${FRONTEND_IMAGE:-ghcr.io/repomz/viewer_frontend:0.2.78}
+    image: ${FRONTEND_IMAGE:-ghcr.io/repomz/viewer_frontend:0.2.79}
     environment:
       PUBLIC_DOMAIN: ${VIEWER_DOMAIN:-angio.su}
       BACKEND_URL: http://backend:8080

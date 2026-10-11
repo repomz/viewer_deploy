@@ -77,6 +77,13 @@ spec:
             - name: YANDEX_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef: {name: viewer-secrets, key: YANDEX_SECRET_ACCESS_KEY}
+            - name: DEEPSEEK_API_KEY
+              valueFrom:
+                secretKeyRef: {name: viewer-secrets, key: DEEPSEEK_API_KEY, optional: true}
+            - name: DEEPSEEK_BASE_URL
+              value: https://api.deepseek.com
+            - name: DEEPSEEK_VISION_MODEL
+              value: deepseek-flash
           readinessProbe:
             httpGet: {path: /, port: http}
             initialDelaySeconds: 5
