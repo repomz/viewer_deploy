@@ -8,7 +8,7 @@ Windows-компьютере больницы и в этот серверный 
 
 | Компонент | Образ |
 |---|---|
-| Frontend | `ghcr.io/repomz/viewer_frontend:0.2.82` |
+| Frontend | `ghcr.io/repomz/viewer_frontend:0.2.83` |
 | Backend | `ghcr.io/repomz/viewer_backend:0.2.31` |
 | Миграции | `ghcr.io/repomz/viewer_backend-migrations:0.2.31` |
 | PostgreSQL | `postgres:17-alpine` |
