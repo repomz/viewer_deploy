@@ -8,9 +8,9 @@ Windows-компьютере больницы и в этот серверный 
 
 | Компонент | Образ |
 |---|---|
-| Frontend | `ghcr.io/repomz/viewer_frontend:0.2.83` |
-| Backend | `ghcr.io/repomz/viewer_backend:0.2.36` |
-| Миграции | `ghcr.io/repomz/viewer_backend-migrations:0.2.36` |
+| Frontend | `ghcr.io/repomz/viewer_frontend:0.2.84` |
+| Backend | `ghcr.io/repomz/viewer_backend:0.2.37` |
+| Миграции | `ghcr.io/repomz/viewer_backend-migrations:0.2.37` |
 | PostgreSQL | `postgres:17-alpine` |
 | Orthanc | `jodogne/orthanc-plugins:1.12.11` |
 
